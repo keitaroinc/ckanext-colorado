@@ -1,0 +1,39 @@
+{
+    "Title": {
+        "pattern_path": "^title$",
+        "unique": true,
+        "case_sensitive": true
+    },
+    "Description": {
+        "pattern_path": "^notes$",
+        "unique": true,
+        "case_sensitive": true,
+        "max_length": 255
+    },
+    "Agency": {
+        "pattern_path": [
+            "^organization$",
+            "^title$"
+        ],
+        "case_sensitive": true,
+        "deduplicate": true
+    },
+    "Data Owner": {
+        "pattern_path": "^author$",
+        "unique": true,
+        "case_sensitive": true
+    },
+    "Formats": {
+        "pattern_path": [
+            "^resources$",
+            "^format$"
+        ],
+        "case_sensitive": true,
+        "deduplicate": true
+    },
+    "State": {
+        "pattern_path": "^state$",
+        "unique": true,
+        "case_sensitive": true
+    }
+}
