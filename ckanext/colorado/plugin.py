@@ -1,3 +1,4 @@
+import ckanext.colorado.helpers as helpers
 import pkgutil
 import inspect
 import os
@@ -35,6 +36,7 @@ def _register_blueprints():
 class ColoradoPlugin(plugins.SingletonPlugin, DefaultTranslation):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITranslation)
+    plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IBlueprint)
 
     # IConfigurer
@@ -45,5 +47,16 @@ class ColoradoPlugin(plugins.SingletonPlugin, DefaultTranslation):
         toolkit.add_resource('fanstatic', 'colorado')
 
     # IBlueprint
+    
     def get_blueprint(self):
         return _register_blueprints()
+
+    # ITemplateHelpers
+
+    def get_helpers(self):
+        return {
+            "get_user_types": helpers.get_user_types,
+            "get_expertise": helpers.get_expertise,
+            "get_insurance_types": helpers.get_insurance_types,
+            "get_job_preferences": helpers.get_job_preferences,
+        }
