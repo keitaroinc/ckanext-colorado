@@ -18,6 +18,26 @@
         "case_sensitive": true,
         "deduplicate": true
     },
+    "Job type": {
+        "pattern_path": "^job_type$",
+        "unique": true,
+        "case_sensitive": true
+    },
+    "Location": {
+        "pattern_path": "^location$",
+        "unique": true,
+        "case_sensitive": true
+    },
+    "Experiance Level": {
+        "pattern_path": "^experiance_level$",
+        "unique": true,
+        "case_sensitive": true
+    },
+    "Salary Estimate": {
+        "pattern_path": "^salary_estimate$",
+        "unique": true,
+        "case_sensitive": true
+    },
     "Data Owner": {
         "pattern_path": "^author$",
         "unique": true,
