@@ -42,6 +42,7 @@ class ColoradoPlugin(plugins.SingletonPlugin, DefaultTranslation, DefaultDataset
     plugins.implements(plugins.IBlueprint)
     plugins.implements(plugins.IDatasetForm)
     plugins.implements(plugins.IFacets, inherit=True)
+    plugins.implements(plugins.IRoutes, inherit=True)
 
     # IConfigurer
 
@@ -129,3 +130,29 @@ class ColoradoPlugin(plugins.SingletonPlugin, DefaultTranslation, DefaultDataset
 
     def group_facets(self, facets_dict, group_type, package_type):
         return ColoradoPlugin._extend_search_facets(facets_dict)
+
+
+    # IRoutes
+    def before_map(self, map):
+        map.redirect('/', '/dataset',
+                     _redirect_code='301 Moved Permanently')
+        # Override the package search action.
+        with SubMapper(
+            map,
+            controller='ckanext.colorado.controllers:ColoradoPackageController'
+        ) as m:
+            m.connect('/dataset/{action}/{id}',
+                requirements=dict(action='|'.join([
+                    'new_resource',
+                    'history',
+                    'read_ajax',
+                    'history_ajax',
+                    'follow',
+                    'activity',
+                    'groups',
+                    'unfollow',
+                    'delete',
+                    'api_data',
+                ])))
+
+        return map
