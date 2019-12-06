@@ -51,7 +51,8 @@ To install ckanext-colorado:
    config file (by default the config file is located at
    ``/etc/ckan/default/production.ini``).
 
-4. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu::
+4. Replace the SOLR schema with ckanext/colorado/schema.xml
+5. Restart CKAN. For example if you've deployed CKAN with Apache on Ubuntu::
 
      sudo service apache2 reload
 
@@ -59,7 +60,19 @@ To install ckanext-colorado:
 Config settings
 ---------------
 
-None at present.
+These are the required configuration options used by the extension:
+
+1. Display only organization and tags facets from the defaults
+```
+# (mandatory).
+search.facets = organization tags
+```
+2. Create dataset without data resource
+```
+# (mandatory).
+ckan.dataset.create.require.resource = false
+```
+
 
 ----------------------
 Developer installation

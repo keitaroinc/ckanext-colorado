@@ -1,0 +1,33 @@
+{% ckan_extends %}
+
+{% block package_additional_info %}
+    {% if pkg_dict.job_type %}
+    <tr>
+        <th scope="row" class="dataset-label">{{ _('Job type') }}</th>
+        <td class="dataset-details" property="dc:creator">{{ pkg_dict.job_type }}</td>
+    </tr>
+    {% endif %}
+
+    {% if pkg_dict.location %}
+    <tr>
+        <th scope="row" class="dataset-label">{{ _('Location') }}</th>
+        <td class="dataset-details" property="dc:creator">{{ pkg_dict.location }}</td>
+    </tr>
+    {% endif %}
+
+    {% if pkg_dict.experiance_level %}
+    <tr>
+        <th scope="row" class="dataset-label">{{ _('Experiance Level') }}</th>
+        <td class="dataset-details" property="dc:creator">{{ pkg_dict.experiance_level }}</td>
+    </tr>
+    {% endif %}
+
+    {% if pkg_dict.salary_estimate %}
+    <tr>
+        <th scope="row" class="dataset-label">{{ _('Salary Estimate') }}</th>
+        <td class="dataset-details" property="dc:creator">{{ pkg_dict.salary_estimate }}</td>
+    </tr>
+    {% endif %}
+
+    {{ super() }}
+{% endblock %}

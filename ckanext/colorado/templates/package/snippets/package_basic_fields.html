@@ -1,0 +1,10 @@
+{% ckan_extends %}
+
+{% block package_basic_fields_tags %}
+    {{ form.select("location", id="field-location", label=_("Location"), options=h.get_job_locations(), selected=data.location, error=errors.location, classes=["control-medium"], is_required=False) }}
+    {{ form.select("job_type", id="field-job-type", label=_("Job Type"), options=h.get_job_types(), selected=data.job_type, error=errors.job_type, classes=["control-medium"], is_required=False) }}
+    {{ form.select("experiance_level", id="field-experiance-level", label=_("Experiance Level"), options=h.get_experiance_level(), selected=data.experiance_level, error=errors.experiance_level, classes=["control-medium"], is_required=False) }}
+    {{ form.select("salary_estimate", id="field-salary-estimate", label=_("Salary Estimate"), options=h.get_salary_estimate(), selected=data.salary_estimate, error=errors.salary_estimate, classes=["control-medium"], is_required=False) }}
+
+   {{ super() }}
+{% endblock %}
