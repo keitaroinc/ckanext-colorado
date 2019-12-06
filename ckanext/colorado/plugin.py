@@ -86,7 +86,8 @@ class ColoradoPlugin(plugins.SingletonPlugin, DefaultTranslation, DefaultDataset
             "get_job_types": helpers.get_job_types,
             "get_job_locations": helpers.get_job_locations,
             'get_experiance_level': helpers.get_experiance_level,
-            'get_salary_estimate': helpers.get_salary_estimate
+            'get_salary_estimate': helpers.get_salary_estimate,
+            'pretty_date': helpers.pretty_date
         }
 
     # IDatasetForm
