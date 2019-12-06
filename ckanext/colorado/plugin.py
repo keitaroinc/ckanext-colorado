@@ -1,4 +1,3 @@
-import ckanext.colorado.helpers as helpers
 import pkgutil
 import inspect
 import os
@@ -9,10 +8,12 @@ from routes.mapper import SubMapper
 
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
-
 from ckan.lib.plugins import DefaultTranslation
 from ckan.lib.plugins import DefaultDatasetForm
 
+import ckanext.colorado.helpers as helpers
+import ckanext.colorado.logic.action.user as user_action
+from ckanext.colorado.model.user import setup as user_extra_model_setup
 
 log = logging.getLogger(__name__)
 
@@ -37,6 +38,8 @@ def _register_blueprints():
 
 class ColoradoPlugin(plugins.SingletonPlugin, DefaultTranslation, DefaultDatasetForm):
     plugins.implements(plugins.IConfigurer)
+    plugins.implements(plugins.IConfigurable)
+    plugins.implements(plugins.IActions)
     plugins.implements(plugins.ITranslation)
     plugins.implements(plugins.ITemplateHelpers)
     plugins.implements(plugins.IBlueprint)
@@ -51,10 +54,26 @@ class ColoradoPlugin(plugins.SingletonPlugin, DefaultTranslation, DefaultDataset
         toolkit.add_public_directory(config_, 'public')
         toolkit.add_resource('fanstatic', 'colorado')
 
+    # IConfigurable
+
+    def configure(self, config):
+        user_extra_model_setup()
+
     # IBlueprint
 
     def get_blueprint(self):
         return _register_blueprints()
+
+    # IActions
+
+    def get_actions(self):
+        action_functions = {
+            'user_extra_create': user_action.user_extra_create,
+            'user_extra_read': user_action.user_extra_read,
+            'user_extra_update': user_action.user_extra_update
+        }
+
+        return action_functions
 
     # ITemplateHelpers
 
