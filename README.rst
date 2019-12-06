@@ -63,15 +63,13 @@ Config settings
 These are the required configuration options used by the extension:
 
 1. Display only organization and tags facets from the defaults
-```
-# (mandatory).
-search.facets = organization tags
-```
+    (mandatory)
+    search.facets = organization tags
+
 2. Create dataset without data resource
-```
-# (mandatory).
-ckan.dataset.create.require.resource = false
-```
+    (mandatory)
+    ckan.dataset.create.require.resource = false
+
 
 
 ----------------------
