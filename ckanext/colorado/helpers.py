@@ -1,5 +1,8 @@
 """Colorado custom helpers.
 """
+from datetime import datetime
+from human_dates import time_ago_in_words
+
 
 def get_user_types():
     """Defines options available for user types.
@@ -111,3 +114,10 @@ def get_salary_estimate():
         {'name': '60000', 'value': '$60,000+'},
         {'name': '65000', 'value': '$65,000+'}
     ]
+
+def pretty_date(str):
+    """ Return time passed fro the given time
+    """
+    t = datetime.strptime(str, '%Y-%m-%dT%H:%M:%S.%f')
+
+    return time_ago_in_words(t)
