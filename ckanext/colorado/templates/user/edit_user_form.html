@@ -6,26 +6,20 @@
   <fieldset>
     <legend>{{ _('Personal details') }}</legend>
     {{ form.input('name', label=_('Username'), id='field-username', value=data.name, error=errors.name, classes=['control-medium'], attrs={'readonly': '', 'class': 'form-control'}) }}
-
     {{ form.input('fullname', label=_('Full name'), id='field-fullname', value=data.fullname, error=errors.fullname, placeholder=_('eg. Joe Bloggs'), classes=['control-medium']) }}
-
     {{ form.input('email', label=_('Email'), id='field-email', type='email', value=data.email, error=errors.email, placeholder=_('eg. joe@example.com'), classes=['control-medium'], is_required=true) }}
-
     {{ form.markdown('about', label=_('About'), id='field-about', value=data.about, error=errors.about, placeholder=_('A little information about yourself')) }}
   </fieldset>
 
   <fieldset>
     <legend>{{ _('Professional details') }}</legend>
-    {{ form.select("user_type", id="field-user-type", label=_("User Type"), options=h.get_user_types(), selected=data.user_type, error=errors.user_type, classes=["control-medium"], attrs={'disabled': '', 'class': 'form-control'}) }}
-
+    <input type="hidden" name="key" value="unique" />
+    {{ form.select("user_type", id="field-user-type", label=_("User Type"), options=h.get_user_types(), selected=data.user_type, error=errors.user_type, classes=["control-medium"], attrs={'disabled': '','class': 'form-control'}) }}
+    <input type="hidden" name="user_type" value="{{ data.user_type }}"/>
     {{ form.select("expertise", id="field-expertise", label=_("Expertise"), options=h.get_expertise(), selected=data.expertise, error=errors.expertise, classes=["control-medium"]) }}
-
     {{ form.select("job_preference", id="field-job-preference", label=_("Preferred Employment Type"), options=h.get_job_preferences(), selected=data.job_preference, error=errors.job_preference, classes=["control-medium"]) }}
-    
     {{ form.markdown('experience', label=_('Experience'), id='field-experience', value=data.experience, error=errors.experience, placeholder=_('Say more about your experience')) }}
-
     {{ form.markdown('education', label=_('Education'), id='field-education', value=data.education, error=errors.education, placeholder=_('Information about your education')) }}
-
     {{ form.select("insurance_type", id="field-expertise", label=_("Insurance Type"), options=h.get_insurance_types(), selected=data.insurance_type, error=errors.insurance_type, classes=["control-medium"]) }}
 
     {% if show_email_notifications %}
