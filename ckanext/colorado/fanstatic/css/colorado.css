@@ -1,0 +1,40 @@
+body,
+[role=main] {
+  background: #fff;
+}
+
+[role=main] {
+  padding-bottom: 0;
+}
+
+.account-masthead,
+.masthead,
+.site-footer {
+  background-image: none;
+}
+
+.toolbar .breadcrumb {
+  font-size: inherit;
+}
+
+.wrapper {
+  border-bottom: none;
+  border-right: none;
+  border-left: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.media-grid {
+  background: none;
+  padding: 0;
+  border: none;
+  margin: 0 -15px;
+}
+
+@media (min-width: 992px) {
+  .masthead .navbar-collapse {
+    float: none;
+    margin-left: 30px;
+  }
+}
