@@ -1,0 +1,29 @@
+{% set url=h.url_for(controller='organization', action='read', id=organization.name) %}
+{% set truncate=truncate or 0 %}
+{% block organization_item %}
+<a class="btn btn-default d-flex flex-column justify-content-between" href="{{ url }}">
+  {% block organization_item_header %}
+  {% block organization_item_header_image %}
+  <div class="image-wrap">
+    <img src="{{ organization.image_display_url or h.url_for_static('/base/images/placeholder-organization.png') }}"
+      alt="{{ organization.name }}" />
+  </div>
+  {% endblock %}
+
+  {% block organization_item_header_title %}
+  <div class="d-flex flex-column justify-content-center">
+    <h3 class="media-heading">{{ organization.title or organization.name }}</h3>
+    {% endblock %}
+    {% block organization_item_header_description %}
+    {% if organization.description %}
+    {% if truncate == 0 %}
+    <p class="text-muted text-ellipsis">{{ h.markdown_extract(organization.description)|urlize }}</p>
+    {% else %}
+    <p class="text-muted text-ellipsis">{{ h.markdown_extract(organization.description, truncate)|urlize }}</p>
+    {% endif %}
+    {% endif %}
+    {% endblock %}
+    {% endblock %}
+  </div>
+</a>
+{% endblock %}
