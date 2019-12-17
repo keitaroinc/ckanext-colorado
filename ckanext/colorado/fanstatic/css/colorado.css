@@ -28,7 +28,7 @@ body,
 
 .hero .search-form {
   border: none;
-  padding-bottom: 0;
+  padding-bottom: 15px;
 }
 
 .hero .tags {
