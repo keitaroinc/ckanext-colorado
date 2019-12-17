@@ -12,7 +12,7 @@
 
   {% block organization_item_header_title %}
   <div class="d-flex flex-column justify-content-center">
-    <h3 class="media-heading">{{ organization.title or organization.name }}</h3>
+    <h3 class="media-heading text-ellipsis">{{ organization.title or organization.name }}</h3>
     {% endblock %}
     {% block organization_item_header_description %}
     {% if organization.description %}
