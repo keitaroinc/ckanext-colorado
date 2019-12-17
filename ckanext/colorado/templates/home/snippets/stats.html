@@ -1,0 +1,32 @@
+{% set stats = h.get_site_statistics() %}
+
+<div class="stats">
+  <div class="row">
+      {% block stats_group %}
+      <div class="col-md-3 d-flex flex-column justify-content-center align-items-center">
+        <a href="{{ h.url_for(controller='package', action='search') }}">
+          <strong>{{ h.SI_number_span(stats.dataset_count) }}</strong>
+          {{ _('dataset') if stats.dataset_count == 1 else _('datasets') }}
+        </a>
+      </div>
+      <div class="col-md-3 d-flex flex-column justify-content-center align-items-center">
+        <a href="{{ h.url_for(controller='organization', action='index') }}">
+          <strong>{{ h.SI_number_span(stats.organization_count) }}</strong>
+          {{ _('organization') if stats.organization_count == 1 else _('organizations') }}
+        </a>
+      </div>
+      <div class="col-md-3 d-flex flex-column justify-content-center align-items-center">
+        <a href="{{ h.url_for(controller='group', action='index') }}">
+          <strong>{{ h.SI_number_span(stats.group_count) }}</strong>
+          {{ _('group') if stats.group_count == 1 else _('groups') }}
+        </a>
+      </div>
+      <div class="col-md-3 d-flex flex-column justify-content-center align-items-center">
+        <a href="#">
+          <strong>24</strong>
+          {{ _('users') }}
+        </a>
+      </div>
+      {% endblock %}
+  </div>
+</div>
