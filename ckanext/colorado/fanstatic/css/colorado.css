@@ -7,10 +7,91 @@ body,
   padding-bottom: 0;
 }
 
-.account-masthead,
+[role=main].hero {
+  background-color: #001970;
+  background-image: linear-gradient(rgba(0, 25, 112, 0.3), rgba(0, 25, 112, 0.3)), url('/base/images/autumn_ChimneyPeakSanJuan.jpg');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  min-height: 550px;
+}
+
+.hero .search-form a,
+.hero .stats a {
+  color: inherit;
+}
+
+.hero .search-form {
+  border: none;
+  padding-bottom: 0;
+}
+
+.hero .tags {
+  margin-bottom: 60px;
+}
+
+.hero .search-form .heading {
+  font-size: 42px;
+  margin: 0 0 50px;
+  text-align: center;
+  padding: 0;
+}
+
+.account-masthead {
+  background: none;
+}
+
 .masthead,
 .site-footer {
   background-image: none;
+  background-color: #ddd;
+}
+
+.site-footer {
+  padding: 30px 0;
+}
+
+.site-footer,
+.site-footer label {
+  color: #444;
+}
+
+.site-footer a {
+  color: #444;
+}
+
+.account-masthead .account ul li {
+  border-left-color: transparent;
+}
+
+.account-masthead .account ul li a {
+  color: #444;
+}
+
+.masthead {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.masthead .logo img {
+  max-height: 50px;
+}
+
+.masthead .nav>li>a {
+  color: #444;
+}
+
+.masthead .navigation .nav-pills li.active a {
+  background-color: #001970;
+}
+
+.stats {
+  font-size: 24px;
 }
 
 .toolbar .breadcrumb {
@@ -18,11 +99,58 @@ body,
 }
 
 .wrapper {
-  border-bottom: none;
-  border-right: none;
-  border-left: none;
+  border: none;
   box-shadow: none;
   border-radius: 0;
+}
+
+.module-heading {
+  background-color: #f9f9f9;
+}
+
+.module:first-child .module-heading {
+  border-top-width: 1px;
+}
+
+.agencies h2,
+.agencies h2 a,
+.job-list h2 {
+  color: #c3002f;
+}
+
+.agencies .btn {
+  margin: 10px 20px 10px 0;
+  width: 40%;
+  flex-grow: 1;
+  padding: 10px 15px;
+  text-align: left;
+}
+
+.btn-apply {
+  margin: 30px 0 30px 30px;
+}
+
+.btn-all {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.image-wrap {
+  display: flex;
+  flex-direction: column;
+  background: #eee;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.image-wrap img {
+  object-fit: contain;
+  max-height: 50px;
+}
+
+.job-list .dataset-heading {
+  font-size: 18px;
+  margin-top: 15px;
 }
 
 .media-grid {
@@ -32,9 +160,54 @@ body,
   margin: 0 -15px;
 }
 
-@media (min-width: 992px) {
-  .masthead .navbar-collapse {
-    float: none;
-    margin-left: 30px;
+.navbar-toggle {
+  background-color: #001970;
+}
+
+.btn-primary {
+  background-color: #001970;
+  border: transparent;
+}
+
+.btn-primary:hover {
+  background-color: #35647e;
+  border: transparent;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 992px) {}
+
+
+@media (min-width: 768px) {
+  .wrapper:before {
+    border-right: none;
   }
 }
