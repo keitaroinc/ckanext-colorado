@@ -11,6 +11,9 @@
     </button>
   </div>
 </form>
+{% block stats %}
+  {% snippet 'home/snippets/stats.html' %}
+{% endblock %}
 {% if tags %}
 <div class="tags">
   <h3>{{ _('Popular tags') }}</h3>
