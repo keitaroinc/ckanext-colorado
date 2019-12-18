@@ -13,6 +13,7 @@ def get_user_types():
         {'name': "agency", 'value': "Agency"}
     ]
 
+
 def get_expertise():
     """Defines options available for field of expertise.
     """
@@ -38,6 +39,7 @@ def get_expertise():
         {'name': "software_engineer", 'value': "Software Engineer"}
     ]
 
+
 def get_insurance_types():
     """Defines options available for insurance types.
     """
@@ -49,6 +51,7 @@ def get_insurance_types():
         {'name': "none", 'value': "None"}
     ]
 
+
 def get_job_preferences():
     """Defines options available for job preferences.
     """
@@ -58,6 +61,7 @@ def get_job_preferences():
         {'name': "contract", 'value': "Contract"},
         {'name': "internship", 'value': "Internship"}
     ]
+
 
 def get_job_types():
     """Defines options available for job types
@@ -71,6 +75,7 @@ def get_job_types():
         {'name': 'contract', 'value': 'Contract'},
         {'name': 'internship', 'value': 'Internship'}
     ]
+
 
 def get_job_locations():
     """Define options available for job locations
@@ -93,6 +98,7 @@ def get_job_locations():
         {'name': 'chicago', 'value': 'Chicago, IL'}
     ]
 
+
 def get_experiance_level():
     """Define options available for require job experiance
     """
@@ -102,6 +108,7 @@ def get_experiance_level():
         {'name': 'mid-level', 'value': 'Mid Level'},
         {'name': 'senior-level', 'value': 'Senior Level'}
     ]
+
 
 def get_salary_estimate():
     """Define options availabe for salaries
@@ -116,12 +123,14 @@ def get_salary_estimate():
         {'name': '65000', 'value': '$65,000+'}
     ]
 
+
 def pretty_date(str):
     """ Return time passed fro the given time
     """
     t = datetime.strptime(str, '%Y-%m-%dT%H:%M:%S.%f')
 
     return time_ago_in_words(t)
+
 
 def get_recently_updated_datasets(limit=6):
     '''
@@ -149,3 +158,52 @@ def get_recently_updated_datasets(limit=6):
             package['days_ago_modified'] = ((datetime.now() - modified).days)
             pkgs.append(package)
         return pkgs
+
+
+def user_type(user):
+    user_type = None
+    if user:
+        user_type = toolkit.get_action('user_extra_read')(
+            {}, {'key': 'unique', 'user_id': user['id']})
+        if user_type:
+            return user_type.get('user_type', None)
+
+def expertise(user):
+    expertise = None
+    if user:
+        expertise = toolkit.get_action('user_extra_read')(
+            {}, {'key': 'unique', 'user_id': user['id']})
+        if expertise:
+            return expertise.get('expertise', None)
+
+def job_preference(user):
+    job_preference = None
+    if user:
+        job_preference = toolkit.get_action('user_extra_read')(
+            {}, {'key': 'unique', 'user_id': user['id']})
+        if job_preference:
+            return job_preference.get('job_preference', None)
+
+def experience(user):
+    experience = None
+    if user:
+        experience = toolkit.get_action('user_extra_read')(
+            {}, {'key': 'unique', 'user_id': user['id']})
+        if experience:
+            return experience.get('experience', None)
+
+def education(user):
+    education = None
+    if user:
+        education = toolkit.get_action('user_extra_read')(
+            {}, {'key': 'unique', 'user_id': user['id']})
+        if education:
+            return education.get('education', None)
+
+def insurance_type(user):
+    insurance_type = None
+    if user:
+        insurance_type = toolkit.get_action('user_extra_read')(
+            {}, {'key': 'unique', 'user_id': user['id']})
+        if insurance_type:
+            return insurance_type.get('insurance_type', None)

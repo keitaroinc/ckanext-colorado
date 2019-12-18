@@ -220,6 +220,10 @@ body,
   text-overflow: ellipsis;
 }
 
+.user-extra-content dt {
+  font-size: 20px;
+}
+
 @media (min-width: 992px) {}
 
 

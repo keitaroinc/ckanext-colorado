@@ -22,6 +22,10 @@
     {{ form.markdown('education', label=_('Education'), id='field-education', value=data.education, error=errors.education, placeholder=_('Information about your education')) }}
     {{ form.select("insurance_type", id="field-expertise", label=_("Insurance Type"), options=h.get_insurance_types(), selected=data.insurance_type, error=errors.insurance_type, classes=["control-medium"]) }}
 
+    <div class="form-actions">
+      <button class="btn btn-primary" type="button" name="upload">{{ _("Upload CV") }}</button>
+    </div>
+     
     {% if show_email_notifications %}
     {% call form.checkbox('activity_streams_email_notifications', label=_('Subscribe to notification emails'), id='field-activity-streams-email-notifications', value=True, checked=g.userobj.activity_streams_email_notifications) %}
         {% set helper_text = _("You will receive notification emails from {site_title}, e.g. when you have new activities on your dashboard."|string) %}

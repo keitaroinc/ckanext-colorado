@@ -1,0 +1,52 @@
+{% extends "user/read_base.html" %}
+
+{% block primary_content_inner %}
+<div class="user-extra-content">
+  {% if h.user_type(user) %}
+  <dl>
+      <dt>{{ _('User Type') }}</dt>
+      <dd>{{ h.user_type(user) }}</dd>
+  </dl>
+  {% endif %}
+  <dl>
+      <dt>{{ _('Expertise') }}</dt>
+      {% if h.expertise(user) %}
+      <dd>{{ h.expertise(user) }}</dd>
+      {% else %}
+      <dd class="empty">No expertise specified.</dd>
+      {% endif %}
+  </dl>
+  <dl>
+      <dt>{{ _('Job Preference') }}</dt>
+      {% if h.job_preference(user) %}
+      <dd>{{ h.job_preference(user) }}</dd>
+      {% else %}
+      <dd class="empty">No job preference specified.</dd>
+      {% endif %}
+  </dl>
+  <dl>
+      <dt>{{ _('Experience') }}</dt>
+      {% if h.experience(user) %}
+      <dd>{{ h.render_markdown(h.experience(user)) }}</dd>
+      {% else %}
+      <dd class="empty">No experience specified.</dd>
+      {% endif %}
+  </dl>
+  <dl>
+      <dt>{{ _('Education') }}</dt>
+      {% if h.education(user) %}
+      <dd>{{ h.render_markdown(h.education(user)) }}</dd>
+      {% else %}
+      <dd class="empty">No education specified.</dd>
+      {% endif %}
+  </dl>
+  <dl>
+      <dt>{{ _('Insurance Type') }}</dt>
+      {% if h.insurance_type(user) %}
+      <dd>{{ h.insurance_type(user) }}</dd>
+      {% else %}
+      <dd class="empty">No insurance type specified.</dd>
+      {% endif %}
+  </dl>
+</div>
+{% endblock %}
