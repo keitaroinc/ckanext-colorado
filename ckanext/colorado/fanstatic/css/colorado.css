@@ -19,6 +19,7 @@ body,
   align-items: center;
   color: #fff;
   min-height: 550px;
+  padding: 60px;
 }
 
 .hero .search-form a,
@@ -32,7 +33,11 @@ body,
 }
 
 .hero .tags {
-  margin-bottom: 60px;
+  margin: 40px 30px 0;
+}
+
+.tags h3 {
+  margin-top: 0;
 }
 
 .hero .search-form .heading {
@@ -126,7 +131,7 @@ body,
   text-align: left;
 }
 
-.agencies .media-heading{
+.agencies .media-heading {
   max-width: 100%;
 }
 
@@ -137,6 +142,14 @@ body,
 .btn-all {
   margin-top: 30px;
   margin-bottom: 30px;
+}
+
+.btn-hero {
+  border: 1px solid #fff;
+  padding: 10px 15px;
+  border-radius: 30px;
+  line-height: 1;
+  margin: 10px 0;
 }
 
 .image-wrap {
