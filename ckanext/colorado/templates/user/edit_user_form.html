@@ -13,6 +13,9 @@
 
   <fieldset>
     <legend>{{ _('Professional details') }}</legend>
+    <div class="form-actions">
+      {% link_for _('Upload CV'), named_route=' ', class_='btn btn-default', icon='list-alt' %}
+    </div>
     <input type="hidden" name="key" value="unique" />
     {{ form.select("user_type", id="field-user-type", label=_("User Type"), options=h.get_user_types(), selected=data.user_type, error=errors.user_type, classes=["control-medium"], attrs={'disabled': '','class': 'form-control'}) }}
     <input type="hidden" name="user_type" value="{{ data.user_type }}"/>
@@ -22,10 +25,6 @@
     {{ form.markdown('education', label=_('Education'), id='field-education', value=data.education, error=errors.education, placeholder=_('Information about your education')) }}
     {{ form.select("insurance_type", id="field-expertise", label=_("Insurance Type"), options=h.get_insurance_types(), selected=data.insurance_type, error=errors.insurance_type, classes=["control-medium"]) }}
 
-    <div class="form-actions">
-      {% link_for _('Upload CV'), named_route=' ', class_='btn btn-default', icon='list-alt' %}
-    </div>
-     
     {% if show_email_notifications %}
     {% call form.checkbox('activity_streams_email_notifications', label=_('Subscribe to notification emails'), id='field-activity-streams-email-notifications', value=True, checked=g.userobj.activity_streams_email_notifications) %}
         {% set helper_text = _("You will receive notification emails from {site_title}, e.g. when you have new activities on your dashboard."|string) %}
