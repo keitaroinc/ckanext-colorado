@@ -23,7 +23,7 @@
     {{ form.select("insurance_type", id="field-expertise", label=_("Insurance Type"), options=h.get_insurance_types(), selected=data.insurance_type, error=errors.insurance_type, classes=["control-medium"]) }}
 
     <div class="form-actions">
-      <button class="btn btn-primary" type="button" name="upload">{{ _("Upload CV") }}</button>
+      {% link_for _('Upload CV'), named_route=' ', class_='btn btn-default', icon='list-alt' %}
     </div>
      
     {% if show_email_notifications %}
