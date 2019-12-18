@@ -1,0 +1,30 @@
+{% set packages = h.get_recently_updated_datasets(3) %}
+
+<div role="main" class="hero">
+  <div class="container">
+    {% block search %}
+      {% snippet 'home/snippets/search.html' %}
+    {% endblock %}
+  </div>
+</div>
+<div role="main">
+  <div class="container">
+    <div class="row">
+      {% block featured_organization %}
+      <div class="col-md-6 agencies">
+        <h2>{{ _('Featured') }} <a href="{{ h.url_for(controller='organization', action='index') }}">{{ _("Agencies") }}</a></h2>
+        <div class="d-flex flex-wrap">
+          {% snippet 'home/snippets/featured_organization.html' %}
+        </div>
+      </div>
+      {% endblock %}
+      {% block featured_packages %}
+      <div class="col-md-6 job-list">
+        <h2>{{ _("Newest Job Listings") }}</h2>
+        {% snippet 'snippets/package_list.html', packages=packages %}
+        <a class="btn btn-primary btn-all" href="{{ h.url_for(controller='package', action='search') }}">{{ _('View all') }}</a>
+      </div>
+      {% endblock %}
+    </div>
+  </div>
+</div>

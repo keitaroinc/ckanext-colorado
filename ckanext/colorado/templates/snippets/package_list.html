@@ -23,6 +23,8 @@ Example:
         {% endfor %}
     {% endblock %}
 </ul>
+{% if (c.controller != 'home') %}
 <a class="btn btn-primary pull-right" href="{% url_for 'export.download_metadata_all' %}">{{ _('Export All') }}</a>
+{% endif %}
 {% endif %}
 {% endblock %}

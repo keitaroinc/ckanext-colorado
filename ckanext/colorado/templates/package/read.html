@@ -43,7 +43,7 @@
 
 {% block package_additional_info %}
 {% snippet "package/snippets/additional_info.html", pkg_dict=pkg %}
-{% if h.check_access('package_show', {'id':pkg.id })  %}
+{% if h.check_access('package_show', {'id':pkg.id }) %}
 <a class="btn btn-primary pull-right"
   href="{% url_for 'export.download_metadata',name=pkg.name %}">{{ _('Export Metadata') }}</a>
 {% endif %}

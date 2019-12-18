@@ -87,7 +87,8 @@ class ColoradoPlugin(plugins.SingletonPlugin, DefaultTranslation, DefaultDataset
             "get_job_locations": helpers.get_job_locations,
             'get_experiance_level': helpers.get_experiance_level,
             'get_salary_estimate': helpers.get_salary_estimate,
-            'pretty_date': helpers.pretty_date
+            'pretty_date': helpers.pretty_date,
+            'get_recently_updated_datasets': helpers.get_recently_updated_datasets
         }
 
     # IDatasetForm
@@ -154,8 +155,6 @@ class ColoradoPlugin(plugins.SingletonPlugin, DefaultTranslation, DefaultDataset
 
     # IRoutes
     def before_map(self, map):
-        map.redirect('/', '/dataset',
-                     _redirect_code='301 Moved Permanently')
         # Override the package search action.
         with SubMapper(
             map,

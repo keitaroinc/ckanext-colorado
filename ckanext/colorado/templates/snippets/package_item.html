@@ -22,6 +22,7 @@ Example:
 <li class="{{ item_class or "dataset-item" }}">
     {% block content %}
     <div class="dataset-content">
+      <a class="btn btn-sm btn-success btn-apply pull-right" href="{{ h.url_for(package.type + '_read', controller='package', action='read', id=package.name) }}">{{ _('Apply') }}</a>
         {% block heading %}
         <h3 class="dataset-heading">
             {% block heading_private %}
