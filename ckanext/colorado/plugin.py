@@ -88,7 +88,13 @@ class ColoradoPlugin(plugins.SingletonPlugin, DefaultTranslation, DefaultDataset
             'get_experiance_level': helpers.get_experiance_level,
             'get_salary_estimate': helpers.get_salary_estimate,
             'pretty_date': helpers.pretty_date,
-            'get_recently_updated_datasets': helpers.get_recently_updated_datasets
+            'get_recently_updated_datasets': helpers.get_recently_updated_datasets,
+            'user_type': helpers.user_type,
+            'expertise': helpers.expertise,
+            'job_preference': helpers.job_preference,
+            'experience': helpers.experience,
+            'education': helpers.education,
+            'insurance_type': helpers.insurance_type
         }
 
     # IDatasetForm

@@ -13,6 +13,9 @@
 
   <fieldset>
     <legend>{{ _('Professional details') }}</legend>
+    <div class="form-actions">
+      {% link_for _('Upload CV'), named_route=' ', class_='btn btn-default', icon='list-alt' %}
+    </div>
     <input type="hidden" name="key" value="unique" />
     {{ form.select("user_type", id="field-user-type", label=_("User Type"), options=h.get_user_types(), selected=data.user_type, error=errors.user_type, classes=["control-medium"], attrs={'disabled': '','class': 'form-control'}) }}
     <input type="hidden" name="user_type" value="{{ data.user_type }}"/>
